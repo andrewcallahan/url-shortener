@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  given_url: MyString
+  slug: MyString
+  clicks: 1
+
+two:
+  given_url: MyString
+  slug: MyString
+  clicks: 1

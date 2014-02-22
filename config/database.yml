@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: url-shortener_development
   pool: 5
-  username: url-shortener
+  # username: url-shortener
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
