@@ -10,7 +10,11 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link = Link.find_by(slug: params[:id])
+    @link = Link.find_by(slug: params[:slug])
+    if redirect_to @link.given_url
+      @link.clicks += 1
+      @link.save
+    end
   end
 
   # GET /links/new
@@ -29,7 +33,8 @@ class LinksController < ApplicationController
 
     respond_to do |format|
       if @link.save
-        format.html { redirect_to @link, notice: 'Link was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Link was successfully created.' }
+        format.js
         format.json { render action: 'show', status: :created, location: @link }
       else
         format.html { render action: 'new' }
@@ -65,7 +70,7 @@ class LinksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
-      @link = Link.find(params[:id])
+      @link = Link.find_by(slug: params[:slug])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

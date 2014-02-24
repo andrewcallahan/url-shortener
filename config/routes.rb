@@ -1,7 +1,9 @@
 UrlShortener::Application.routes.draw do
   resources :links
 
-  get ':id' => 'links#show'
+  root 'home#index'
+
+  get ':slug' => 'links#show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

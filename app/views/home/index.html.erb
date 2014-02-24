@@ -1,0 +1,27 @@
+<div class="row">
+
+<%= render 'links/form' %>
+</div>
+
+<div class="result">
+</div>
+
+<div class="title">
+  <h1>Trending links</h1>
+</div>
+
+<% @top_links.each do |array_of_four| %>
+  <div class="row">
+    <% array_of_four.each do |link| %>
+      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 link">
+        <div class="screenshot-outer"><%= link_to image_tag(link.snapshot.url, class: "screenshot"), link.given_url %></div>
+        <p class="short_url"><%= link_to link.display_slug, link.slug, target: '_blank' %></p>
+        <ul class="click_time">
+          <li><span class="badge"><span class="clicks"><%= link.clicks %></span></span> clicks</li>
+          <li><span class="time"><%= time_ago_in_words(link.created_at) %> ago</span></li>
+        </ul>
+        <p class="long_url"><%= link_to link.given_url, link.given_url %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -9,5 +9,129 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap.min
  *= require_tree .
  */
+body
+{
+background-color:yellow;
+}
+
+span.clicks {
+  font-size: 50px;
+}
+
+span.time {
+  font-style: italic;
+}
+
+img.screenshot {
+  width:100%;
+  /*position: absolute;*/
+  /*clip: rect(0px,200px,300px,0px);*/
+}
+
+form div {
+  /*float:left;*/
+  display:inline-block;
+}
+
+form {
+  text-align: center;
+  margin-top:20px;
+}
+form div.field {
+  margin-top:12px;
+  margin-left:10px;
+}
+
+form div.actions {
+  margin-top:12px;
+  margin-left:10px;
+}
+
+h1 {
+  text-align: center;
+}
+div.title {
+  margin-bottom: 20px;
+}
+div.result {
+  height: 60px;
+}
+
+@keyframes myfirst
+{
+  from {background: yellow;}
+  to {background: none;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+  from {background: yellow;}
+  to {background: none;}
+}
+
+div.result p {
+  margin:0;
+  padding:0;
+  line-height: 60px;
+  animation: myfirst 1s;
+  -webkit-animation: myfirst 1s; /* Safari and Chrome */
+}
+
+div.link {
+  margin-bottom: 60px;
+}
+p.short_url {
+  text-align: center;
+  font-size: 20px;
+  margin-top:10px;
+}
+
+p.long_url {
+  text-align: center;
+  color:#DCDCDC;
+  font-size: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow: hidden;
+}
+
+ul {
+  padding:0px;
+  list-style:none;
+  height:400px;
+}
+
+ul.click_time li:first-child{
+  float:left;
+}
+
+ul.click_time li:last-child{
+  margin-top:55px;
+  float:right;
+}
+
+ul.click_time {
+  height:70px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+li {
+  margin-top:20px;
+}
+
+div.screenshot-outer {
+  height:200px;
+  overflow: hidden;
+  border:1px solid;
+  border-radius:5px;
+  border-color:#DCDCDC;
+}
+
+
+div.screenshot-outer img {
+  padding:10px;
+}

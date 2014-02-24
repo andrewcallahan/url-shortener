@@ -34,6 +34,11 @@ end
 
 gem 'rails_12factor', group: :production
 
+gem 'imgkit'
+
+gem 'carrierwave'
+gem "fog", "~> 1.3.1"
+gem "figaro"
 gem 'pry'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
