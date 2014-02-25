@@ -43,6 +43,7 @@ gem 'pry'
 gem 'sidekiq'
 gem 'mechanize'
 gem 'jquery-validation-rails'
+gem 'will_paginate', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
