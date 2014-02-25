@@ -1,6 +1,7 @@
 UrlShortener::Application.routes.draw do
-  resources :links
+  # require 'sidekiq/web'
 
+  resources :links
   root 'home#index'
 
   get ':slug' => 'links#show'

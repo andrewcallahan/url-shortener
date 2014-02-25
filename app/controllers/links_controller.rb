@@ -10,10 +10,14 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
-    @link = Link.find_by(slug: params[:slug])
-    if redirect_to @link.given_url
-      @link.clicks += 1
-      @link.save
+    if params[:slug]
+      @link = Link.find_by(slug: params[:slug])
+      if redirect_to @link.given_url
+        @link.clicks += 1
+        @link.save
+      end
+    else
+      @link = Link.find(params[:id])
     end
   end
 

@@ -14,7 +14,9 @@
   <div class="row">
     <% array_of_four.each do |link| %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 link">
+        <% if link.snapshot %>
         <div class="screenshot-outer"><%= link_to image_tag(link.snapshot.url, class: "screenshot"), link.given_url %></div>
+        <% end %>
         <p class="short_url"><%= link_to link.display_slug, link.slug, target: '_blank' %></p>
         <ul class="click_time">
           <li><span class="badge"><span class="clicks"><%= link.clicks %></span></span> clicks</li>

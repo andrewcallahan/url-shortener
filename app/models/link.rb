@@ -3,11 +3,11 @@ class Link < ActiveRecord::Base
 
   mount_uploader :snapshot, SnapshotUploader
 
-  after_create :generate_slug, :take_snapshot
+  after_create :generate_slug, :screenshot_scrape#, :scrape_title
 
   def generate_slug
     self.slug = self.id.to_s(36)
-    # self.save
+    self.save
   end
 
   def display_slug
@@ -29,13 +29,18 @@ class Link < ActiveRecord::Base
 
     # private
 
-    def take_snapshot
-      file = Tempfile.new(["template_#{self.id.to_s}", '.jpg'], 'tmp', :encoding => 'ascii-8bit')
-      file.write(IMGKit.new(self.given_url, quality: 50, width: 600).to_jpg)
-      file.flush
-      self.snapshot = file
-      self.save
-      file.unlink
-    end
+  def screenshot_scrape
+    Screenshot.perform_async(self.id)
+    Scrape.perform_async(self.id)
+  end
+
+  # def take_snapshot
+  #   file = Tempfile.new(["template_#{self.id.to_s}", '.jpg'], 'tmp', :encoding => 'ascii-8bit')
+  #   file.write(IMGKit.new(self.given_url, quality: 50, width: 600).to_jpg)
+  #   file.flush
+  #   self.snapshot = file
+  #   self.save
+  #   file.unlink
+  # end
 
 end

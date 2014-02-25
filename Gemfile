@@ -40,6 +40,9 @@ gem 'carrierwave'
 gem "fog", "~> 1.3.1"
 gem "figaro"
 gem 'pry'
+gem 'sidekiq'
+gem 'mechanize'
+gem 'jquery-validation-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
