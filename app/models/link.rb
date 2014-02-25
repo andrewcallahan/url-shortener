@@ -1,6 +1,4 @@
 class Link < ActiveRecord::Base
-  BASE_URL = "http://xo.gp/"
-
   mount_uploader :snapshot, SnapshotUploader
 
   after_create :generate_slug, :screenshot_scrape#, :scrape_title
@@ -11,7 +9,7 @@ class Link < ActiveRecord::Base
   end
 
   def display_slug
-    BASE_URL + self.slug
+    ENV['BASE_URL'] + self.slug
   end
 
   # def get_screenshot
