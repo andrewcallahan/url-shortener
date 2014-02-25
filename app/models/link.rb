@@ -30,18 +30,17 @@ class Link < ActiveRecord::Base
     # private
 
   def screenshot_scrape
-    # Screenshot.perform_async(self.id)
+    Screenshot.perform_async(self.id)
     Scrape.perform_async(self.id)
-    self.take_snapshot
   end
 
-  def take_snapshot
-    file = Tempfile.new(["template_#{self.id.to_s}", '.jpg'], 'tmp', :encoding => 'ascii-8bit')
-    file.write(IMGKit.new(self.given_url, quality: 50, width: 600).to_jpg)
-    file.flush
-    self.snapshot = file
-    self.save
-    file.unlink
-  end
+  # def take_snapshot
+  #   file = Tempfile.new(["template_#{self.id.to_s}", '.jpg'], 'tmp', :encoding => 'ascii-8bit')
+  #   file.write(IMGKit.new(self.given_url, quality: 50, width: 600).to_jpg)
+  #   file.flush
+  #   self.snapshot = file
+  #   self.save
+  #   file.unlink
+  # end
 
 end
