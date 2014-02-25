@@ -1,11 +1,3 @@
-<div class="row">
-
-<%= render 'links/form' %>
-</div>
-
-<div class="result">
-</div>
-
 <div class="title">
   <h1>Trending links</h1>
 </div>
@@ -15,8 +7,9 @@
     <% array_of_four.each do |link| %>
       <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 link">
         <% if link.snapshot %>
-        <div class="screenshot-outer"><%= link_to image_tag(link.snapshot.url, class: "screenshot"), link.given_url %></div>
+        <div class="screenshot-outer"><%= link_to image_tag(link.snapshot.url, class: "screenshot"), link %></div>
         <% end %>
+        <p class="title"><%= link.title %></p>
         <p class="short_url"><%= link_to link.display_slug, link.slug, target: '_blank' %></p>
         <ul class="click_time">
           <li><span class="badge"><span class="clicks"><%= link.clicks %></span></span> clicks</li>

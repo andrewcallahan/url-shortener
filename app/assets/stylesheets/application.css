@@ -89,6 +89,10 @@ p.short_url {
   margin-top:10px;
 }
 
+p.title {
+  text-align: center;
+}
+
 p.long_url {
   text-align: center;
   color:#DCDCDC;
@@ -131,6 +135,13 @@ div.screenshot-outer {
   border-color:#DCDCDC;
 }
 
+div.screenshot-outer-individual {
+  height:340px;
+  overflow: hidden;
+  border:1px solid;
+  border-radius:5px;
+  border-color:#DCDCDC;
+}
 
 div.screenshot-outer img {
   padding:10px;

@@ -1,19 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Given url:</strong>
-  <%= @link.given_url %>
-</p>
+<% if @link.snapshot %>
+<div class="screenshot-outer-individual"><%= link_to image_tag(@link.snapshot.url, class: "screenshot"), @link %></div>
+<% end %>
+<p class="title"><%= @link.title %></p>
+<p class="short_url"><%= link_to @link.display_slug, @link.slug, target: '_blank' %></p>
+<ul class="click_time">
+  <li><span class="badge"><span class="clicks"><%= @link.clicks %></span></span> clicks</li>
+  <li><span class="time"><%= time_ago_in_words(@link.created_at) %> ago</span></li>
+</ul>
+<p class="long_url"><%= link_to @link.given_url, @link.given_url %></p>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @link.slug %>
-</p>
-
-<p>
-  <strong>Clicks:</strong>
-  <%= @link.clicks %>
-</p>
-
-<%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', root_path %>
