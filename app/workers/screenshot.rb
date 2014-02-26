@@ -1,7 +1,5 @@
 class Screenshot
   include Sidekiq::Worker
-  # OPTIONAL sidekiq_options retry: false
-  # OPTIONAL sidekiq_options queue: "high"
 
   def perform(link_id)
     link = Link.find(link_id)

@@ -24,7 +24,7 @@ $.validator.addMethod(
             var re = new RegExp(regexp);
             return this.optional(element) || re.test(value);
         },
-        "Looks like something is wrong with your URL"
+        "Please enter a valid URL (using http)"
 );
 
 $('#new_link').ready(function() {
