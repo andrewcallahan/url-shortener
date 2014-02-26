@@ -2,23 +2,21 @@
   <h1>Trending links</h1>
 </div>
 
-<% @top_links.each do |array_of_four| %>
-  <div class="row">
-    <% array_of_four.each do |link| %>
-      <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 link">
-        <% if link.snapshot %>
-        <div class="screenshot-outer"><%= link_to image_tag(link.snapshot.url, class: "screenshot"), link %></div>
-        <% end %>
-        <p class="title"><%= link.title %></p>
-        <p class="short_url"><%= link_to link.display_slug, link.slug, target: '_blank' %></p>
-        <ul class="click_time">
-          <li><span class="badge"><span class="clicks"><%= link.clicks %></span></span> clicks</li>
-          <li><span class="time"><%= time_ago_in_words(link.created_at) %> ago</span></li>
-        </ul>
-        <p class="long_url"><%= link_to link.given_url, link.given_url %></p>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<div class="row">
+  <% @top_links.each do |link| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 link">
+      <% if link.snapshot %>
+      <div class="screenshot-outer"><%= link_to image_tag(link.snapshot.url, class: "screenshot"), link %></div>
+      <% end %>
+      <p class="title"><%= link.title %></p>
+      <p class="short_url"><%= link_to link.display_slug, link.slug, target: '_blank' %></p>
+      <ul class="click_time">
+        <li><span class="badge"><span class="clicks"><%= link.clicks %></span></span> clicks</li>
+        <li><span class="time"><%= time_ago_in_words(link.created_at) %> ago</span></li>
+      </ul>
+      <p class="long_url"><%= link_to link.given_url, link.given_url %></p>
+    </div>
+  <% end %>
+</div>
 
 <p class="bottom_nav"><%= link_to 'See all of the links', '/all' %></p>
