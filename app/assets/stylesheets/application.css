@@ -98,6 +98,7 @@ p.short_url {
 
 p.title {
   text-align: center;
+  line-height: 36px;
 }
 
 p.long_url {
